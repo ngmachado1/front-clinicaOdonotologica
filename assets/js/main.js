@@ -53,5 +53,7 @@ fetch(url, {
 
 fetch(userApi)
 .then(response => response.json())
-.then(user => user = user)
+.then(user => odontologos.forEach(element => {
+    element
+}))
 .catch(error => console.log("error", error))
