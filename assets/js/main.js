@@ -1,5 +1,5 @@
 
-const url = "http://localhost:8080/odontologos"
+
 const userApi ="https://randomuser.me/api/?results=10"
 
 
@@ -36,16 +36,14 @@ const inHTML =(odontologos) =>{
 
 let odontologos = [];
 let user;
-
+const url = "http://localhost:8080/odontologos"
 fetch(url, {
     headers:{
         "method": "GET",
       'Content-Type': 'application/json'
     }
   }).then(response => response.json())
-  .then(json => json.forEach(element => {
-    odontologos.push(element)
-  }))
+  .then(json => inHTML(json))
   .catch(error => console.log("error odontologos", error))
 
 
