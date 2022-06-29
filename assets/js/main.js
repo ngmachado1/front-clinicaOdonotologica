@@ -18,15 +18,15 @@ const userApi ="https://randomuser.me/api/?results=10"
     `
  }
 
-const inHTML =(odontologos) =>{
-    const container = document.querySelector('.cards');
+const inHTML =(json, cont) =>{
+    const container = document.querySelector(cont);
  
     container.innerHTML = "";
     let html;
-    console.log(odontologos.length );
-    if (odontologos.length > 0){
-        odontologos.forEach(odontologo => {
-            html = html + component(odontologo);
+    console.log(json.length );
+    if (json.length > 0){
+        json.forEach(jsonItem => {
+            html = html + component(jsonItem);
         });
     }
 
@@ -43,7 +43,7 @@ fetch(url, {
       'Content-Type': 'application/json'
     }
   }).then(response => response.json())
-  .then(json => inHTML(json))
+  .then(odontologosJson => inHTML(odontologosJson, '.cards'))
   .catch(error => console.log("error odontologos", error))
 
 
